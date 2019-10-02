@@ -33,6 +33,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'byebug'
   gem 'factory_bot'
+  gem 'guard-rspec'
   gem 'pry-byebug'
   gem 'rspec-rails'
 end
