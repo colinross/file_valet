@@ -1,5 +1,6 @@
 inherit_from: .rubocop_installed_rails.yml
-
+Style/Documentation:
+  Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/StringLiterals:
