@@ -13,7 +13,7 @@ RSpec.describe PayloadsController, type: :controller do
   describe "GET #show" do
     it "returns a success response" do
       payload = Payload.create! valid_attributes
-      get :show, params: {id: payload.to_param}, session: valid_session
+      get :show, params: { uuid: payload.to_param }, session: valid_session
       expect(response).to be_successful
     end
   end
@@ -22,13 +22,12 @@ RSpec.describe PayloadsController, type: :controller do
     context "with valid params" do
       it "creates a new Payload" do
         expect {
-          post :create, params: {payload: valid_attributes}, session: valid_session
+          post :create, params: { payload: valid_attributes }, session: valid_session
         }.to change(Payload, :count).by(1)
       end
 
       it "renders a JSON response with the new payload" do
-
-        post :create, params: {payload: valid_attributes}, session: valid_session
+        post :create, params: { payload: valid_attributes }, session: valid_session
         expect(response).to have_http_status(:created)
         expect(response.content_type).to eq('application/json')
         expect(response.location).to eq(payload_url(Payload.last))
@@ -37,7 +36,7 @@ RSpec.describe PayloadsController, type: :controller do
 
     context "with invalid params" do
       it "renders a JSON response with errors for the new payload" do
-        post :create, params: {payload: invalid_attributes}, session: valid_session
+        post :create, params: { payload: invalid_attributes }, session: valid_session
         expect(response).to have_http_status(:unprocessable_entity)
         expect(response.content_type).to eq('application/json')
       end

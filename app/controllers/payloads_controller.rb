@@ -1,7 +1,7 @@
 class PayloadsController < ApplicationController
   # GET /payloads/{UUID}
   def show
-    render json: @payload
+    render json: payload
   end
 
   # POST /payloads
@@ -16,13 +16,14 @@ class PayloadsController < ApplicationController
   end
 
   private
-    def payload
-      @payload ||= Payload.find_by!(uuid: params[:id])
-    rescue ActiveRecord::RecordNotFound
-      nil
-    end
 
-    def payload_params
-      params.require(:payload).permit(:label, :description)
-    end
+  def payload
+    @payload ||= Payload.find_by!(uuid: params[:uuid])
+  rescue ActiveRecord::RecordNotFound
+    nil
+  end
+
+  def payload_params
+    params.require(:payload).permit(:label, :description)
+  end
 end
