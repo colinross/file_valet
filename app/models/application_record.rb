@@ -6,4 +6,8 @@ class ApplicationRecord < ActiveRecord::Base
   before_save do
     self.uuid ||= SecureRandom.uuid if attributes.include?("uuid")
   end
+
+  def to_param
+    attributes.include?("uuid") ? uuid : super
+  end
 end
