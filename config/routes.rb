@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  resources :payloads, only: %i[create show], param: :uuid, format: :json
+  root 'frontend#index'
+  defaults format: :json do
+    resources :payloads, only: %i[create show], param: :uuid
+  end
 end
