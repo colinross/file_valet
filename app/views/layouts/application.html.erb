@@ -7,16 +7,18 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-
     <%= javascript_pack_tag 'application' %>
+    <% if content_for? :head %>
+      <%= yield :head %>
+    <% end %>
   </head>
 
   <body>
-  <section id="main" class="section">
-    <!-- Vue app  -->
-    <%= yield %>
-  </section>
-  <section id="footer" class="section">
+  <!-- Vue app  -->
+  <section id="main" class="section" data-behavior="vue">
+    <app title="Welcome to FileValet">
+      <%= yield %>
+    </app>
   </section>
   </body>
 </html>

@@ -6,7 +6,15 @@ class FrontendController < ActionController::Base
     # This allows Vue to just take over with a blank slate.
     # YMMV as far as if this is a good or bad thing, but it allows the front
     # back ends to stay very de-coupled yet co-exist in the same repo.
-    render :index
+    render html: nil, layout: true
   end
+
+  # Files displays the current Payloads created
+  def files
+    meta = {}.tap do |m|
+      m[:endpoint_url] = payloads_url
+      m[:columns] = Payload.column_names.collect {|col| { field: col, label: col.titleize } }
+    end
+    render 'shared/resource_grid', locals: { resource_metadata: meta }
   end
 end
