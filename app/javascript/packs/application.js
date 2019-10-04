@@ -16,13 +16,17 @@
 // const imagePath = (name) => images(name, true)
 
 import Vue from 'vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+Vue.use(Buefy)
+
 import App from '../app.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     render: h => h(App)
   }).$mount()
-  document.body.appendChild(app.$el)
+  document.getElementById('main').appendChild(app.$el)
 
   console.log(app)
 })
