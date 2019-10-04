@@ -1,4 +1,8 @@
 class PayloadsController < ApplicationController
+  def index
+    render json: Payload.distinct
+  end
+
   # GET /payloads/{UUID}
   def show
     render json: payload

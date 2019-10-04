@@ -15,14 +15,19 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+Vue.use(Buefy)
+
 import App from '../app.vue'
+Vue.component('app', App)
+
+import ResourceGrid from 'components/resource-grid.vue'
+Vue.component('resource-grid', ResourceGrid)
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    render: h => h(App)
-  }).$mount()
-  document.body.appendChild(app.$el)
-
-  console.log(app)
+  const app = new Vue({ el: '[data-behavior="vue"]'})
 })
+

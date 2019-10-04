@@ -8,4 +8,13 @@ class FrontendController < ActionController::Base
     # back ends to stay very de-coupled yet co-exist in the same repo.
     render html: nil, layout: true
   end
+
+  # Files displays the current Payloads created
+  def files
+    meta = {}.tap do |m|
+      m[:endpoint_url] = payloads_url
+      m[:columns] = %w[label description uuid created_at].collect {|col| { field: col, label: col.titleize } }
+    end
+    render 'shared/resource_grid', locals: { resource_metadata: meta }
+  end
 end
