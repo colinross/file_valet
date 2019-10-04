@@ -13,7 +13,7 @@ class FrontendController < ActionController::Base
   def files
     meta = {}.tap do |m|
       m[:endpoint_url] = payloads_url
-      m[:columns] = Payload.column_names.collect {|col| { field: col, label: col.titleize } }
+      m[:columns] = %w[label description uuid created_at].collect {|col| { field: col, label: col.titleize } }
     end
     render 'shared/resource_grid', locals: { resource_metadata: meta }
   end
