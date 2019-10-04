@@ -24,9 +24,8 @@ import App from '../app.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
+    el: '#app',
     render: h => h(App)
   }).$mount()
-  document.getElementById('main').appendChild(app.$el)
-
   console.log(app)
 })
