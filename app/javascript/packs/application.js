@@ -26,6 +26,8 @@ Vue.component('app', App)
 import ResourceGrid from 'components/resource-grid.vue'
 Vue.component('resource-grid', ResourceGrid)
 
+import FileManager from 'components/file-manager.vue'
+Vue.component('file-manager', FileManager)
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({ el: '[data-behavior="vue"]'})
