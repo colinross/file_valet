@@ -21,3 +21,5 @@ jobs:
       #   run: bin/rails db:schema:load RAILS_ENV=test
       - name: Run Specs
         run: bin/rails spec
+      - name: Run Specs (Javascript)
+        run: yarn install && yarn test
