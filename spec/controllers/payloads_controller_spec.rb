@@ -13,7 +13,7 @@ RSpec.describe PayloadsController, type: :controller do
   describe "GET #show" do
     it "returns a success response" do
       payload = Payload.create! valid_attributes
-      get :show, params: { uuid: payload.to_param }, session: valid_session
+      get :show, params: { uuid: payload.to_param }, session: valid_session, format: :json
       expect(response).to be_successful
     end
   end

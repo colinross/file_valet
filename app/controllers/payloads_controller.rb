@@ -1,11 +1,11 @@
 class PayloadsController < ApplicationController
   def index
-    render json: Payload.distinct
+    @payloads = Payload.distinct
   end
 
   # GET /payloads/{UUID}
   def show
-    render json: payload
+    payload
   end
 
   # POST /payloads
