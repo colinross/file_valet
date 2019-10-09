@@ -1,0 +1,8 @@
+storage/*/*
+tmp/*
+node_modules/*
+log/*/*
+Procfile
+.git
+spec/examples.txt
+spec/coverage
