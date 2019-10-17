@@ -2,7 +2,7 @@ FROM ruby:alpine
 # Minimal requirements for Rails
 RUN apk update && apk add --no-cache --update build-base \
                                 autoconf automake libtool pkgconfig \
-                                sqlite sqlite-dev \
+                                postgresql postgresql-dev \
                                 linux-headers \
                                 git \
                                 nodejs \
